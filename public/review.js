@@ -17,7 +17,6 @@ async function createCustomer() {
 
 async function loadCustomerData() {
   await fetch('/reviews')
-  console.log("hello there")
     .then((result) => result.json())
     .then((resultJson) => {
         console.log(resultJson);
