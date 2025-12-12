@@ -1,66 +1,45 @@
-async function createCustomer() {
-  await fetch(`/review`, {
-    method: 'POST',
-    body: JSON.stringify({
-      name: `${document.getElementById('name').value}`,
-      website: `${document.getElementById('website').value}`,
-      review: `${document.getElementById('review').value}`,
-    }),
-    headers: {
-      'content-type': 'application/json',
-    },
-  }).then((result) => result.json());
 
-  await loadCustomerData();
-}
 
 async function loadCustomerData() {
   await fetch('/reviews')
     .then((result) => result.json())
     .then((resultJson) => {
-      const table = document.createElement('table');
-      table.setAttribute('id', 'reviewInfo');
-      const tableRow = document.createElement('tr');
+        console.log(resultJson);
+        const table = document.createElement('table');
+        const tableRow = document.createElement('tr');
+        const tableHeadingName = document.createElement('th');
+        tableHeadingName.innerHTML = "Name";
 
-      const tableHeadingName = document.createElement('th');
-      tableHeadingFirstName.innerHTML = 'Name';
+        const tableHeadingWebsite = document.createElement('th');
+        tableHeadingWebsite.innerHTML = "Website";
 
-      const tableHeadingWebsite= document.createElement('th');
-      tableHeadingLastName.innerHTML = 'website';
+        const tableHeadingReview = document.createElement('th');
+        tableHeadingReview.innerHTML = "Review";
 
-      const tableHeadingReview = document.createElement('th');
-      tableHeadingState.innerHTML = 'review';
+        tableRow.appendChild(tableHeadingName);
+        tableRow.appendChild(tableHeadingWebsite);
+        tableRow.appendChild(tableHeadingReview);
 
-      tableRow.appendChild(tableHeadingName);
-      tableRow.appendChild(tableHeadingWebsite);
-      tableRow.appendChild(tableHeadingReview);
+        table.appendChild(tableRow);
 
-      table.appendChild(tableRow);
+        // Adding Data to Table
+        resultJson.forEach((customer) => {
+            const reviewTableRow = document.createElement('tr');
+            const reviewTableName = document.createElement('td');
+            const reviewTableWebsite = document.createElement('td');
+            const reviewTableReview = document.createElement('td');
 
-      // Adding Data to Table
-      resultJson.forEach((customer) => {
-        const customerTableRow = document.createElement('tr');
-        const customerTableName = document.createElement('td');
-        const customerTableWebsite = document.createElement('td');
-        const customerTableReview = document.createElement('td');
+            reviewTableName.innerHTML = customer.name;
+            reviewTableWebsite.innerHTML = customer.website;
+            reviewTableReview.innerHTML = customer.review;
 
-        customerTableName.innerHTML = customer['name'];
-        customerTableWebsite.innerHTML = customer['website'];
-        customerTableReview.innerHTML = customer['review'];
+            reviewTableRow.appendChild(reviewTableName);
+            reviewTableRow.appendChild(reviewTableWebsite);
+            reviewTableRow.appendChild(reviewTableReview);
 
-        reviewTableRow.appendChild(customerTableFirstName);
-        reviewTableRow.appendChild(customerTableLastName);
-        reviewTableRow.appendChild(customerTableState);
-
-        table.appendChild(reviewTableRow);
-      });
-
-      const preExistingTable = document.getElementById('reviewInfo');
-      if (preExistingTable) {
-        preExistingTable.remove();
-      }
-
-      document.body.appendChild(table);
+            table.appendChild(reviewTableRow)
+        })
+        document.body.appendChild(table);
     });
 }
 
