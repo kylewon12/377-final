@@ -1,7 +1,23 @@
+//1:17:54
+async function createCustomer() {
+    await fetch(`/review`, {
+        method: 'POST',
+        body: JSON.stringify({
+            name: `${document.getElementById('name').value}`,
+            website:`${document.getElementById('website').value}`,
+            review: `${document.getElementById('review').value}`,
+        }),
+        headers: {
+            'content-type': 'application/json',
+        },
+    }).then((result) => result.json());
 
+    await loadCustomerData();
+}
 
 async function loadCustomerData() {
   await fetch('/reviews')
+  console.log("hello there")
     .then((result) => result.json())
     .then((resultJson) => {
         console.log(resultJson);
@@ -44,3 +60,4 @@ async function loadCustomerData() {
 }
 
 window.onload = loadCustomerData;
+
