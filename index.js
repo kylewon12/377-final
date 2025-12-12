@@ -7,12 +7,17 @@ const app = express();
 const port = 3000;
 dotenv.config()
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 // initialize supabase client
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = supabaseClient.createClient(supabaseUrl,supabaseKey);
 
+
+app.get('/', (req,res) => {
+    res.sendFile('public/review.html', {root: __dirname})
+})
 
 app.get('/reviews', async(req,res) =>{
 console.log('Attempting to GET all reviews');
