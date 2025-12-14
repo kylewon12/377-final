@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Final Home Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script defer src="review.js"></script>
+
+ <link href="final_style.css" rel="stylesheet" />
+    </head>
+    <body>
+            <div id="head" class="heading">
+      <h1>Suspicious Link Checker</h1>
+          <nav id="main_nav">
+      <ul>
+        <li><a href="final_home.html">Home</a></li>
+        <li><a href="final_about_me.html">About</a></li>
+        <li><a href="review.html">Search Link</a></li>
+      </ul>
+    </nav>
+    </div>
+
+    <div id = "about_page_cont">
+            <h2>About Me</h2>
+
+    <p id = "p_state">Hello! I am Kyle and I am a third year Information Science Major with a minor in Data Science at the University of Maryland, College Park. Here are some things about me and why I chose to make this website.</p>
+    <p id = "p2_state">This page was made to help people on the internet see if the website they aer visting is suspicious or not.  Users will also be able to submit reviews of the links they checked, giving future users more information regarding the website. This is especially useful for links Google SafeBrowsing has not recognized yet</p>
+
+    <div id = "facts_sect">
+    <div class = about_cont id = about_stocks>
+        <h2>Stocks</h2>
+        <p>I have recently started researching stocks, with my favorite being the popular, yet controversial, Bitcoin. Here is how it performed in the second half of2024.</p>
+        <canvas id = myChart></canvas>
+    </div>
+    <div id="slide_show_cont">
+
+    <div class = about_cont id = about_fitness>
+                <h2>Fitness</h2>
+                <p>I have been going to the gym for 4 years. It is a great way to stay active and alleivate stress. Here is a slideshow of my favorite lifts</p>
+                <div data-simple-slider id = slide_show>
+  <img src="https://training.fit/wp-content/uploads/2020/02/preacher-curls-machine.png"/>
+  <img src="https://training.fit/wp-content/uploads/2018/11/bankdruecken-flachbank-langhantel.png"/>
+  <img src=" https://training.fit/wp-content/uploads/2020/02/brustpresse-flach-1024x573.png"/>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
+<script>
+  simpleslider.getSlider();
+</script>
+    </div>
+    </div>
+    <div class = about_cont id = about_cyber>
+                <h2>Technology</h2>
+                <p>I am very interested in anything technology, from building computers to writing code. With cybersecurity being a popular topic, here is a password generator.</p>
+              <button class = "button-30" onclick = pw_gen()>Generate Password</button>
+                <p id = "pw"></p>
+    </div>
+    </div>
+</div>
+
+
+</body>
+</html>

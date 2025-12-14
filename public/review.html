@@ -3,10 +3,31 @@
 <head>
     <title>Our customers!</title>
     <script src="review.js" defer></script>
+    <link href="final_style.css" rel="stylesheet" />
 </head>
 
 <body>
-    <h1>Our Customers!</h1>
+     <div id="head" class="heading">
+      <h1>Suspicious Link Checker</h1>
+          <nav id="main_nav">
+      <ul>
+        <li><a href="final_home.html">Home</a></li>
+        <li><a href="final_about_me.html">About</a></li>
+        <li><a href="review.html">Search Link</a></li>
+      </ul>
+    </nav>
+    </div>
+    <h1>Our1 Customers!</h1>
+    <form onsubmit = "check_link(); return false;">
+    <label for = "enter_link">Enter a link you want to check:</label>
+    <input type = "text" id = "enter_link">
+    <input type = "submit">
+</form>
+
+<div id = "search_results">
+    <p id = "threats_found"></p>
+    <p id = "threat_desc"></p>
+</div>
     <form onsubmit="createCustomer(); return false;">
         <label for="name">Name:</label>
         <input type="text" id="name">
@@ -20,6 +41,9 @@
         <br>
         <input type="submit" name="Add Customer">    
     </form>
+
+    <div id = "review_container"></div>
+    
 </body>
 
 </html>
