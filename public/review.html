@@ -17,8 +17,9 @@
       </ul>
     </nav>
     </div>
-    <h1>Our1 Customers!</h1>
-    <form onsubmit = "check_link(); return false;">
+    <div id = "about_page_cont">
+    <h1>Search Link Page</h1>
+    <form onsubmit = "check_link(); loadReviewData();return false;">
     <label for = "enter_link">Enter a link you want to check:</label>
     <input type = "text" id = "enter_link">
     <input type = "submit">
@@ -28,7 +29,7 @@
     <p id = "threats_found"></p>
     <p id = "threat_desc"></p>
 </div>
-    <form onsubmit="createCustomer(); return false;">
+    <form onsubmit="createReview(); return false;">
         <label for="name">Name:</label>
         <input type="text" id="name">
         <br>
@@ -41,8 +42,11 @@
         <br>
         <input type="submit" name="Add Customer">    
     </form>
-
+    <h1>Reviews about your website</h1>
+    <p id = "filter_table"></p>
+    <h1>All Reviews</h1>
     <div id = "review_container"></div>
+    </div>
     
 </body>
 

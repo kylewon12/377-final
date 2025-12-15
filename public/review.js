@@ -1,7 +1,7 @@
 //1:17:54
 
 
-async function createCustomer() {
+async function createReview() {
     console.log("creating")
     await fetch(`/review`, {
         method: 'POST',
@@ -15,14 +15,13 @@ async function createCustomer() {
         },
     }).then((result) => result.json());
     console.log(name,website,review)
-    await loadCustomerData();
+    await loadReviewData();
 }
 
-async function loadCustomerData() {
+async function loadReviewData() {
   await fetch('/reviews')
     .then((result) => result.json())
     .then((resultJson) => {
-        console.log(resultJson);
         const table = document.createElement('table');
         table.setAttribute('id', 'customerInfo')
         const tableRow = document.createElement('tr');
@@ -63,11 +62,44 @@ async function loadCustomerData() {
             preExistingTable.remove();
         }
         document.getElementById('review_container').appendChild(table);
-    });
+
+// im thinking that sincethis loads on page load, it populates it with a "" which breaks it
+  console.log(document.getElementById("enter_link").value + "lalala")
+
+  console.log(document.getElementById("enter_link").value + "dadada")
+  const match = resultJson.filter(review => review.website == document.getElementById("enter_link").value)
+
+match.forEach(review => {
+  document.getElementById("filter_table").innerHTML += `${review.name} says: ${review.review} <br>`;
+})
+
+
+      });
 }
 
+
+/*
+const urls = []
+function filt (url) {
+  table.forEach(i => {
+    if (url == i.website) {
+      urls.push(i)
+    }
+  })
+  return urls
+}
+
+alert(filt("google.com"))
+##########
+const match = resultJson.filter(review => review.website == "adidas.com")
+console.log(match_array)
+console.log(typeof match_array)
+      });
+}
+*/
+
 window.onload = function () {
-    loadCustomerData();
+    loadReviewData();
       btc_chart();
     get_fact();
 }
