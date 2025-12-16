@@ -34,3 +34,77 @@ To install Supabase, go to your IDE terminal and type: `npm install @supabase/su
 <p>Vercel allows developers to deploy web applications by connecting with Github and using files in the repository to build your app. It is different than Node.js as it creates a real website while Node.js creates a live runtime environment.
 
 No installation is required, however linking your Github repository to Vercel is required for it to work. </p>
+
+## Running Application On a Server
+### Using a Local Server
+<p>With npm installed, type `npm start` in your working environment terminal. After running, text should appear stating that a server is running on port 3000. Now type localhost:3000 to access this server</p>
+
+### Using Vercel
+<p>After linking Github and Vercel, deploy your project by first importing the repository from Github
+
+Once you have pushed changes using git in your working directory terminal, click the link that says "Domain" to open your app.
+</p>
+
+## Software Testing
+<p>
+ Google Safe Browsing API is not a comprehensive database of all websites and as a result, some links that seems malicious might not be flagged. In order to test the API request, use this link:
+
+https://377-final-xi.vercel.app/review.html
+</p>
+
+## APIs
+**Safe Browsing POST**
+<p>
+This post request is used with the Safe Browsing API that checks the URL for suspicious behavior. This request returns a JSON object with data regarding the request. Example: 
+ </p>
+`{
+  "matches": [{
+    "threatType":      "MALWARE",
+    "platformType":    "WINDOWS",
+    "threatEntryType": "URL",
+    "threat":          {"url": "http://www.urltocheck1.org/"},
+    "threatEntryMetadata": {
+      "entries": [{
+        "key": "malware_threat_type",
+        "value": "landing"
+     }]
+    },
+    "cacheDuration": "300.000s"
+  }, {
+    "threatType":      "MALWARE",
+    "platformType":    "WINDOWS",
+    "threatEntryType": "URL",
+    "threat":          {"url": "http://www.urltocheck2.org/"},
+    "threatEntryMetadata": {
+      "entries": [{
+        "key":   "malware_threat_type",
+        "value": "landing"
+     }]
+    },
+    "cacheDuration": "300.000s"
+  }]
+}`
+
+**Create Review POST**
+<p>This POST request allows the user to create a review to display in the Supabase database</p>
+
+**Load Review Data GET**
+<p>This GET request gets the entire table of reviews from the Supabase DB</p>
+
+**Get Fact GET** 
+<p>This GET request gets the fact of the day from the api-ninjas API</p>
+
+**BTC GET** 
+<p>This GET request gets Bitcoin closing price data from July 2024 to December 2024 to display on a chart</p>
+
+**Password Generator GET** 
+<p>This GET request gets a random password from the random password generator API</p>
+
+**`app.get('/', (req,res))`**
+<p>This get request takes the html file and creates a webpage out of it</p>
+
+**`app.get('/reviews', async(req,res))`**
+<p>This allows for retrieval of reviews into Supabase</p>
+
+**`app.post('/reviews', async(req,res))`**
+<p>This allows for insertion of reviews into Supabase</p>
