@@ -108,3 +108,6 @@ This post request is used with the Safe Browsing API that checks the URL for sus
 
 **`app.post('/reviews', async(req,res))`**
 <p>This allows for insertion of reviews into Supabase</p>
+
+## Roadmap
+<p>Google Safe Browsing API is not as comprehensive as I would have liked, but it is hard to place blame when there are billions of websites to keep track of. In addition to this, APIs that may contain more information are usually not free. Future plans could include switching to a paid API for better performance. Future plans could also include a Chrome extension that uses the Safe Browsing API to detect unsafe websites in real time.</p>
