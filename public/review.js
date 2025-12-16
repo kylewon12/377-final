@@ -63,7 +63,6 @@ async function loadReviewData() {
         }
         document.getElementById('review_container').appendChild(table);
 
-// im thinking that sincethis loads on page load, it populates it with a "" which breaks it
   console.log(document.getElementById("enter_link").value + "lalala")
 
   console.log(document.getElementById("enter_link").value + "dadada")
@@ -78,25 +77,6 @@ match.forEach(review => {
 }
 
 
-/*
-const urls = []
-function filt (url) {
-  table.forEach(i => {
-    if (url == i.website) {
-      urls.push(i)
-    }
-  })
-  return urls
-}
-
-alert(filt("google.com"))
-##########
-const match = resultJson.filter(review => review.website == "adidas.com")
-console.log(match_array)
-console.log(typeof match_array)
-      });
-}
-*/
 
 window.onload = function () {
     loadReviewData();
